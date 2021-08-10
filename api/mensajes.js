@@ -3,29 +3,25 @@ const normalize = require('normalizr').normalize
 
 class Mensajes {
 
-    constructor() {
+    constructor() { }
 
-    }
-
-    async devolver() {
+    async buscar() {
         try {
-            return Mensaje.find({});
+            return Mensaje.find({})
         } catch (error) {
-            throw error;
+            throw error
         }
     }
 
-    async getAll() {
+    async buscarTodo() {
         try {
-            let mensajes = await this.devolver()
-            // console.log('!!!!!MENSAJES DESE LA DB!!!!!' + mensajes)
-            // //print(mensajes)
+            let mensajes = await this.buscar()
             let mensajesConId = { 
                 id: 'mensajes', 
                 mensajes : mensajes.map( mensaje => ({...mensaje._doc}))
             }                      
         
-            return mensajesConId;
+            return mensajesConId
         }
         catch {
             return []
@@ -36,7 +32,7 @@ class Mensajes {
         try {
             return Mensaje.findById({ _id: id })
         } catch (error) {
-            throw error;
+            throw error
         }
     }
 
@@ -44,7 +40,7 @@ class Mensajes {
         try {
             return Mensaje.create(mensaje)
         } catch (error) {
-            throw error;
+            throw error
         }
     }
 
@@ -58,11 +54,11 @@ class Mensajes {
 
     async borrar(id) {
         try {
-            return Mensaje.findByIdAndDelete(id);
+            return Mensaje.findByIdAndDelete(id)
         } catch (error) {
-            throw error;
+            throw error
         }
     }
 }
 
-module.exports = new Mensajes();
+module.exports = new Mensajes()

@@ -1,32 +1,30 @@
 const Producto = require('../models/productos')
 
 class Productos {
-    constructor() {
-
-    }
+    constructor() { }
 
     async listar() {
         try {
-            return Producto.find({});
+            return Producto.find({})
         } catch (error) {
-            throw error;
+            throw error
         }
     }
 
     async listarPorId(id) {
         try {
-            return Producto.findById({ _id: id });
+            return Producto.findById({ _id: id })
         } catch (error) {
-            throw error;
+            throw error
         }
     }
 
     async guardar(nuevoProducto) {
         try {
             console.log(nuevoProducto)
-            return Producto.create(nuevoProducto);
+            return Producto.create(nuevoProducto)
         } catch (error) {
-            throw error;
+            throw error
         }
     }
 
@@ -34,17 +32,17 @@ class Productos {
         try {
             return Producto.findByIdAndUpdate(idProducto, nuevoProducto)
         } catch (error) {
-            throw error;
+            throw error
         }
     }
 
     async borrar(idProducto) {
         try {
-            return Producto.findByIdAndDelete(idProducto);
+            return Producto.findByIdAndDelete(idProducto)
         } catch (error) {
-            throw error;
+            throw error
         }
     }
 }
 
-module.exports = new Productos();
+module.exports = new Productos()
